@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Model Box Example</title>
+  <script>
+    function displayModelBox() {
+      alert("It's 9:00am! go to 5K class");
+    }
+
+    var currentTime = new Date();
+    var showTime = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 21, 56, 0);
+    var timeRemaining = showTime.getTime() - currentTime.getTime();
+    if (timeRemaining < 0) {
+      timeRemaining += 24 * 60 * 60 * 1000;
+    }
+
+    setTimeout(displayModelBox, timeRemaining);
+  </script>
+</head>
+<body>
+  <!-- Your website content goes here -->
+</body>
+</html>

@@ -1,0 +1,87 @@
+<h1>Captial of Chappan</h1>
+
+<button id="myButton" class="js-click">Paris</button>
+<button >Tokitoki</button>
+<div id="pageContent">
+  <!-- Your page content here -->
+</div>
+<div id="gifContainer">
+  <img src="bgg.gif" alt="Your Gif">
+  <div id="textOverlay">
+  </div>
+</div>
+<audio id="music1" src="correct-answer.mp3"></audio>
+<audio id="music2" src="wrong-answer.mp3"></audio>
+<style type="text/css">
+  #gifContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+}
+button {
+  background: none;
+}
+#gifContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  opacity: 0;
+}
+.btn:clicked {
+  background-color: red;
+  color: #fff;
+}
+</style>
+<script type="text/javascript">
+  const myButton = document.getElementById('myButton');
+const pageContent = document.getElementById('pageContent');
+const gifContainer = document.getElementById('gifContainer');
+const textOverlay = document.getElementById('textOverlay');
+const music1 = document.getElementById('music1');
+const music2 = document.getElementById('music2');
+
+myButton.addEventListener('click', () => {
+  music1.play();
+
+  setTimeout(() => {
+    pageContent.style.display = 'none';
+    gifContainer.style.display = 'block';
+    music2.play();
+  }, 2000);
+
+  setTimeout(() => {
+    textOverlay.textContent = 'b) Paris';
+    textOverlay.style.opacity = 1;
+  }, 13400);
+
+  setTimeout(() => {
+    textOverlay.style.opacity = 0;
+  }, 21400);
+
+  music2.addEventListener('ended', () => {
+    window.location.href = 'https://google.com';
+  });
+});
+
+</script>
+<script type="text/javascript">
+  $( document ).ready(function() {
+  $( ".js-click" ).click(function() {
+    $( ".js-click" ).css('background', 'red');
+  });
+});
+</script>
